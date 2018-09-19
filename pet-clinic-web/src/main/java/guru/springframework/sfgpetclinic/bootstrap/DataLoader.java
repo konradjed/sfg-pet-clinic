@@ -3,7 +3,7 @@ package guru.springframework.sfgpetclinic.bootstrap;
 import guru.springframework.sfgpetclinic.model.*;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialtyService;
+import guru.springframework.sfgpetclinic.services.SpecialityService;
 import guru.springframework.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,14 +16,14 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-    private final SpecialtyService specialtyService;
+    private final SpecialityService specialityService;
 
     public DataLoader(OwnerService ownerService, VetService vetService,
-                      PetTypeService petTypeService, SpecialtyService specialtyService) {
+                      PetTypeService petTypeService, SpecialityService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
-        this.specialtyService = specialtyService;
+        this.specialityService = specialityService;
     }
 
     @Override
@@ -105,7 +105,7 @@ public class DataLoader implements CommandLineRunner {
     private Speciality setSpeciality(String specialityDesc) {
         Speciality speciality = new Speciality();
         speciality.setDescription(specialityDesc);
-        return specialtyService.save(speciality);
+        return specialityService.save(speciality);
     }
 
     private PetType addPetType(String petTypeName) {
